@@ -1,4 +1,5 @@
 # Web-Based Terminal App Settings Manual
+[English](/terminal.en.md) | [简体中文](/terminal.zh-CN.md)
 
 This manual provides detailed information on configuring and customizing the settings for your web-based terminal app. Each setting allows you to modify how the terminal behaves and appears, giving you control over the user experience.
 

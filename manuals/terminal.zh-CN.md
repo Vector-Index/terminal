@@ -1,5 +1,5 @@
 # Web 终端应用设置手册
-[English](/manuals/terminal.en.md) | [简体中文](/manuals/terminal.zh-CN.md)
+[English](terminal.en.md) | [简体中文](terminal.zh-CN.md)
 
 本手册提供了配置和自定义您的 Web 终端应用的详细信息。每个设置选项都可以帮助您修改终端的行为和外观，让您能够更好地控制用户体验。
 

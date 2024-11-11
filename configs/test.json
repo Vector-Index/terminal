@@ -1,0 +1,25 @@
+{
+  "config": {
+    "data": {
+      "help": "This is a help message",
+      "proxy": "https://api.codetabs.com/v1/proxy/?quest=${url}",
+      "urls": {},
+      "mqtt": {
+        "broker": "wss://test.mosquitto.org:8081",
+        "options": {}
+      }
+    },
+    "scripts": {
+      "js": {
+        "foo": "function foo() { console.log('foo'); return 'foo'; }; foo();",
+        "fetchScript": "// fetchScript(\"bar.js\", \"script.js\")\r\nasync function fetchScript(remote, local) {\r\n    if (!local) {\r\n        local = remote\r\n    }\r\n    try {\r\n        const [remoteName, remoteExtension] = remote.split(\".\")\r\n        if (!remoteExtension in [\"js\", \"py\"]) {\r\n            throw new Error(\"Only support .js and .py\")\r\n        }\r\n        const url = `https://raw.githubusercontent.com/Vector-Index/terminal/refs/heads/main/scripts/${remoteExtension}/${remoteName}.${remoteExtension}`\r\n        const script = await window.utils.api.get(url)\r\n        const [localName, localExtension] = local.split(\".\")\r\n        if (localExtension !== remoteExtension) {\r\n            throw new Error(\"Local script and remote script must have the same extension\")\r\n        }\r\n        scripts[localExtension][localName] = script\r\n        return `Fetched scripts.${remoteExtension}.${remoteName} -> scripts.${localExtension}.${localName}`\r\n    } catch (error) {\r\n        console.log(error)\r\n        return `Error: ${error}`\r\n    }\r\n}\r\nfetchScript(kwargs[0], kwargs[1])",
+        "bar2": "console.log(\"bar\")\nfigletText(\"bar\")"
+      },
+      "py": {}
+    }
+  },
+  "prompt": "",
+  "intro": "Welcome to JavaScript CLI",
+  "settings": true,
+  "load": false
+}

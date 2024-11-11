@@ -19,8 +19,8 @@ async function fetchScript(remote, local) {
         }
         // scripts[localExtension][localName] = script
         scripts[localExtension][localName] = {
-            "text" = script,
-            "mode" = "javascript"
+            "text": script,
+            "mode": "javascript"
         }
         return `Fetched scripts.${remoteExtension}.${remoteName} -> scripts.${localExtension}.${localName}`
     } catch (error) {

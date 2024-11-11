@@ -26,4 +26,4 @@ async function fetchScript(remote, local) {
         return `Error: ${error}`
     }
 }
-fetchScript(kwargs[0], kwargs[1])
+fetchScript(args[0], args[1])

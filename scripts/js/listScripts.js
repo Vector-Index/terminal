@@ -22,4 +22,4 @@ async function listScripts(extensions) {
     }
     return scripts.join("\n")
 }
-listScripts(kwargs)
+listScripts(args)

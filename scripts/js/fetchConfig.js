@@ -1,11 +1,11 @@
 // Fetch remote config
 async function fetchConfig() {
-    const url = `https://raw.githubusercontent.com/Vector-Index/terminal/refs/heads/main/configs/test.json`
-    const configuration = await window.utils.api.get(url)
-    console.log(configuration)
+    const url = `https://raw.githubusercontent.com/Vector-Index/terminal/refs/heads/main/configs/starter.json`
+    const responseText = await window.utils.api.get(url)
+    console.log(responseText)
     // Replace/reload the current config
     try {
-        config.value = JSON.parse(configuration)
+        config.value = JSON.parse(responseText).config
         data = config.value.data
         scripts = config.value.scripts
         return `Fetched config from ${url}`

@@ -1,4 +1,4 @@
-// List scripts from remote
+// List remote scripts
 async function listScripts(extensions) {
     if (!extensions) {
         // extensions = ["js", "py"]

@@ -10,6 +10,9 @@ async function fetchScript(remote, local) {
         }
         const url = `https://raw.githubusercontent.com/Vector-Index/terminal/refs/heads/main/scripts/${remoteExtension}/${remoteName}.${remoteExtension}`
         const script = await window.utils.api.get(url)
+        if (script.startsWith("404")) {
+            throw new Error(`${remote} does not exist`)
+        }
         const [localName, localExtension] = local.split(".")
         if (localExtension !== remoteExtension) {
             throw new Error("Local script and remote script must have the same extension")

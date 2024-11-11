@@ -5,12 +5,12 @@ async function init() {
     console.log(configuration)
     // Replace/reload the current config
     try {
-    	config.value = JSON.parse(configuration)
-    	data = config.value.data
-    	scripts = config.value.scripts
-    	return `Fetched config from ${url}`
-	} catch (error) {
-		return `Error: ${error}`
-	}
+        config.value = JSON.parse(configuration)
+        data = config.value.data
+        scripts = config.value.scripts
+        return `Fetched config from ${url}`
+    } catch (error) {
+        return `Error: ${error}`
+    }
 }
 init()

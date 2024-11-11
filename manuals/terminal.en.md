@@ -69,98 +69,79 @@ A configuration can be loaded in JSON format. Below is an example schema to help
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {
-    "config": {
+    "data": {
       "type": "object",
       "properties": {
-        "data": {
-          "type": "object",
-          "properties": {
-            "help": {
-              "type": "string"
-            },
-            "proxy": {
-              "type": "string",
-              "format": "uri-template"
-            },
-            "urls": {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string",
-                "format": "uri"
-              }
-            },
-            "mqtt": {
-              "type": "object",
-              "properties": {
-                "broker": {
-                  "type": "string",
-                  "format": "uri"
-                },
-                "options": {
-                  "type": "object",
-                  "additionalProperties": true
-                }
-              },
-              "required": ["broker"]
-            }
-          },
-          "required": ["help", "proxy", "mqtt"]
+        "help": {
+          "type": "string"
         },
-        "scripts": {
+        "proxy": {
+          "type": "string",
+          "format": "uri"
+        },
+        "urls": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "mqtt": {
           "type": "object",
           "properties": {
-            "js": {
-              "type": "object",
-              "additionalProperties": {
-                "type": "object",
-                "properties": {
-                  "text": {
-                    "type": "string"
-                  },
-                  "mode": {
-                    "type": "string",
-                    "enum": ["javascript"]
-                  }
-                },
-                "required": ["text", "mode"]
-              }
+            "broker": {
+              "type": "string",
+              "format": "uri"
             },
-            "py": {
+            "options": {
               "type": "object",
-              "additionalProperties": {
-                "type": "object",
-                "properties": {
-                  "text": {
-                    "type": "string"
-                  },
-                  "mode": {
-                    "type": "string",
-                    "enum": ["python"]
-                  }
-                },
-                "required": ["text", "mode"]
-              }
+              "additionalProperties": true
             }
           },
-          "required": ["js", "py"]
+          "required": ["broker"]
         }
       },
-      "required": ["data", "scripts"]
+      "required": ["help", "proxy", "urls", "mqtt"]
     },
-    "prompt": {
-      "type": "string"
-    },
-    "intro": {
-      "type": "string"
-    },
-    "settings": {
-      "type": "boolean"
-    },
-    "load": {
-      "type": "boolean"
+    "scripts": {
+      "type": "object",
+      "properties": {
+        "js": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "text": {
+                "type": "string"
+              },
+              "mode": {
+                "type": "string",
+                "enum": ["javascript"]
+              }
+            },
+            "required": ["text", "mode"]
+          }
+        },
+        "py": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "text": {
+                "type": "string"
+              },
+              "mode": {
+                "type": "string",
+                "enum": ["python"]
+              }
+            },
+            "required": ["text", "mode"]
+          }
+        }
+      },
+      "required": ["js", "py"]
     }
   },
-  "required": ["config", "intro", "settings", "load"]
+  "required": ["data", "scripts"]
 }
 ```
 

@@ -1,60 +1,166 @@
-# Web-Based Terminal App Settings Manual
+# Web Terminal Manual
 [English](terminal.en.md) | [简体中文](terminal.zh-CN.md)
 
-This manual provides detailed information on configuring and customizing the settings for your web-based terminal app. Each setting allows you to modify how the terminal behaves and appears, giving you control over the user experience.
+This manual provides a comprehensive guide for configuring and customizing the settings of your web-based terminal application. Each setting allows you to modify how the terminal behaves and appears, giving you full control over the user experience.
+
+## Settings Overview
 
 ### 1. Choose a Theme
-This option allows you to select a visual theme for the terminal interface. Themes change the colors, styles, and overall look of the terminal.
+This option allows you to select a visual theme for the terminal interface. Themes adjust the colors, styles, and overall look of the terminal, providing a tailored experience to suit your preferences.
 
-- **Available Themes**: The available themes are pre-defined and can be previewed at [Gogh Theme Previews](https://gogh-co.github.io/Gogh/).
-- **Loading Themes**: Themes will only be available in the dropdown after pressing the "Add More Themes" button, which fetches a list of themes from a `themes.json` file.
+- **Available Themes**: The terminal includes several pre-defined themes that can be previewed at [Gogh Theme Previews](https://gogh-co.github.io/Gogh/).
+- **Loading Themes**: To access additional themes, click the "Add More Themes" button. This will load the themes from a `themes.json` file and make them available in the theme dropdown menu.
 
 ### 2. Add More Themes
-Clicking this option will initiate an HTTP request to fetch the list of available themes from an external source. This list will populate the dropdown in the "Choose a Theme" option, allowing you to select different visual themes. Without clicking this button, only the default theme is available.
+Clicking "Add More Themes" initiates an HTTP request to fetch a list of available themes from an external source. Once fetched, these themes are added to the dropdown menu, allowing you to choose from a wider selection.
+
+- **Default Behavior**: Without clicking this button, the terminal will only display the default theme.
 
 ### 3. Font Size (px)
-The "Font Size" field allows you to adjust the font size of the entire terminal interface, including the input area, command prompts, and output text.
+The "Font Size" option allows you to adjust the font size of the entire terminal, including the input area, command prompts, and output text.
 
-- **Default Size**: The default font size is set to **14px**.
-- **Adjustable Range**: You can enter any pixel value to suit your preferences for readability and comfort.
+- **Default Size**: The default font size is **14px**.
+- **Adjustable Range**: You can enter any pixel value that best suits your comfort and readability needs.
 
 ### 4. Proxy
-This setting allows you to specify a proxy URL, which acts as a **CORS proxy** for HTTP/HTTPS requests targeting API endpoints. This is useful for routing certain types of requests.
+The "Proxy" setting allows you to specify a proxy URL to act as a **CORS proxy** for HTTP/HTTPS requests targeting API endpoints.
 
-- **Usage**: Primarily used to bypass CORS limitations for API calls.
-- **Authentication**: An API key can be optionally provided, but it is generally not required. Most pre-configured APIs do not need authentication.
+- **Usage**: This is particularly useful for bypassing CORS limitations during API requests.
+- **Authentication**: You can optionally provide an API key for the proxy, although most pre-configured APIs do not require authentication.
 
 ### 5. Prompt
-The "Prompt" field allows you to customize the static text that appears as the terminal prompt. This prompt text remains constant throughout your session.
+The "Prompt" field allows you to customize the static text that appears as the terminal prompt. This prompt text is static and will not change dynamically.
 
-- **Customization**: Unlike traditional terminal prompts, this field is static as the app runs in a browser. It doesn't support dynamic placeholders such as current directory or username.
+- **Customization**: Unlike traditional terminal prompts, this setting does not support dynamic placeholders such as current directory or username.
 
-### 6. Color
-The "Color" option controls the color of the output text displayed in the terminal.
+### 6. Output Text Color
+The "Color" setting controls the color of output text displayed in the terminal.
 
-- **Usage**: Choose from **8 terminal-supported colors** to customize the visual appearance of output messages. This helps differentiate outputs and makes it easier to scan for important information.
+- **Color Options**: Choose from **8 terminal-supported colors** to differentiate outputs, making it easier to identify important information at a glance.
 
 ### 7. Open Editor
-The "Open Editor" button launches a web-based code editor where you can view and modify the terminal's configuration.
+The "Open Editor" button launches a web-based code editor where you can modify the terminal's configuration and behavior.
 
-- **Capabilities**: The editor allows you to adjust settings, write JavaScript functions, or customize the behavior of the terminal session.
-- **Scripting Support**: The terminal supports custom scripts and common functions, which you can explore in [this GitHub repository](https://github.com/yuxiaoli/scripts/tree/main/src/js/terminal). Additionally, two major modules are available for scripting:
-  - **[Fuse.js](https://www.fusejs.io/)**: For fuzzy searching.
-  - **[Cheerio](https://cheerio.js.org/docs/intro)**: For DOM manipulation.
+- **Capabilities**: The editor allows you to adjust settings, add JavaScript functions, or modify terminal features.
+- **Scripting Support**: The terminal supports custom scripts and includes common functions. You can find examples in [this GitHub repository](https://github.com/Vector-Index/terminal/tree/main/scripts/js) or explore the [terminal repo](https://github1s.com/Vector-Index/terminal). Additionally, two major modules are available for scripting:
+  - **[Fuse.js](https://www.fusejs.io/)**: A fuzzy searching library to enhance search capabilities.
+  - **[Cheerio](https://cheerio.js.org/docs/intro)**: A library for server-side DOM manipulation.
 
 ### 8. Copy URL
-Clicking the "Copy URL" button takes a snapshot of the current configuration settings and converts them into a shareable URL.
+Clicking the "Copy URL" button generates a shareable URL that contains a snapshot of your current terminal configuration.
 
-- **Purpose**: This is useful for saving or sharing your customized terminal configuration.
-- **No Authentication Required**: The generated URL can be shared without any authentication requirements.
+- **Purpose**: This is useful for saving or sharing your customized terminal settings with others.
+- **No Authentication**: The generated URL can be shared without any authentication or access restrictions.
 
 ### 9. Back
-Clicking the "Back" button closes the settings menu and returns you to the terminal interface.
+The "Back" button closes the settings menu and returns you to the terminal interface.
 
-- **Saving Changes**: All changes made are saved dynamically, so no manual saving or reloading of the terminal is required.
-- **Effect of Changes**: Most settings take effect immediately without needing to refresh the page.
+- **Saving Changes**: Changes are saved dynamically, so no additional saving action or page reload is required.
+- **Effect of Changes**: Most settings are applied immediately without the need to refresh the terminal.
 
 ---
 
-Feel free to experiment with these settings to personalize your terminal experience. If you have any further questions, please refer to the FAQ section or contact support for more help.
+## Configuration Guide
+
+A configuration can be loaded in JSON format. Below is an example schema to help you structure your configuration settings.
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "config": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "help": {
+              "type": "string"
+            },
+            "proxy": {
+              "type": "string",
+              "format": "uri-template"
+            },
+            "urls": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "mqtt": {
+              "type": "object",
+              "properties": {
+                "broker": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "options": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              },
+              "required": ["broker"]
+            }
+          },
+          "required": ["help", "proxy", "mqtt"]
+        },
+        "scripts": {
+          "type": "object",
+          "properties": {
+            "js": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  },
+                  "mode": {
+                    "type": "string",
+                    "enum": ["javascript"]
+                  }
+                },
+                "required": ["text", "mode"]
+              }
+            },
+            "py": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  },
+                  "mode": {
+                    "type": "string",
+                    "enum": ["python"]
+                  }
+                },
+                "required": ["text", "mode"]
+              }
+            }
+          },
+          "required": ["js", "py"]
+        }
+      },
+      "required": ["data", "scripts"]
+    },
+    "prompt": {
+      "type": "string"
+    },
+    "intro": {
+      "type": "string"
+    },
+    "settings": {
+      "type": "boolean"
+    },
+    "load": {
+      "type": "boolean"
+    }
+  },
+  "required": ["config", "intro", "settings", "load"]
+}
+```
 

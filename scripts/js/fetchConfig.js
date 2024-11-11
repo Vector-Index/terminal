@@ -1,5 +1,5 @@
-// Fetch config from remote URL
-async function init() {
+// Fetch remote config
+async function fetchConfig() {
     const url = `https://raw.githubusercontent.com/Vector-Index/terminal/refs/heads/main/configs/test.json`
     const configuration = await window.utils.api.get(url)
     console.log(configuration)
@@ -13,4 +13,4 @@ async function init() {
         return `Error: ${error}`
     }
 }
-init()
+fetchConfig()

@@ -17,7 +17,9 @@ async function fetchScript(remote, local) {
         if (localExtension !== remoteExtension) {
             throw new Error("Local script and remote script must have the same extension")
         }
-        scripts[localExtension][localName] = script
+        // scripts[localExtension][localName] = script
+        scripts[localExtension][localName].text = script
+        scripts[localExtension][localName].mode = "javascript"
         return `Fetched scripts.${remoteExtension}.${remoteName} -> scripts.${localExtension}.${localName}`
     } catch (error) {
         console.log(error)

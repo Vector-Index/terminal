@@ -9,6 +9,14 @@
       "mqtt": {
         "broker": "wss://test.mosquitto.org:8081",
         "options": {}
+      },
+      "aliases": {
+        "str": {
+          "ls": "print(keys(scripts.js))",
+          "lsr": "run('listScripts')",
+          "history": "//history"
+        },
+        "re": {}
       }
     },
     "scripts": {

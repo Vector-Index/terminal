@@ -10,7 +10,9 @@ async function fetchConfig() {
         scripts = config.value.scripts
 
         // Update prompt and intro
-        promptRef.value = config.value.prompt
+        if (config.value.prompt) {
+            promptRef.value = config.value.prompt
+        }
         if (config.value.intro) {
             window.utils.writeLines(config.value.intro)
         }

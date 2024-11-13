@@ -15,7 +15,8 @@
           "ls": "print(keys(scripts.js))",
           "lsr": "run('listScripts')",
           "history": "//history",
-          "cls": "clear"
+          "cls": "clear",
+          "config": "//editConfig()"
         },
         "re": {}
       }

@@ -16,7 +16,8 @@
           "lsr": "run('listScripts')",
           "history": "//history",
           "cls": "clear",
-          "config": "//editConfig()"
+          "config": "//editConfig()",
+          "intro": "print(data.intro)"
         },
         "re": {}
       }

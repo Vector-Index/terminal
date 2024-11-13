@@ -72,12 +72,18 @@ A configuration can be loaded in JSON format. Below is an example schema to help
     "data": {
       "type": "object",
       "properties": {
+        "prompt": {
+          "type": "string"
+        },
+        "intro": {
+          "type": "string"
+        },
         "help": {
           "type": "string"
         },
         "proxy": {
           "type": "string",
-          "format": "uri"
+          "pattern": "^https?://.*"
         },
         "urls": {
           "type": "object",
@@ -90,7 +96,7 @@ A configuration can be loaded in JSON format. Below is an example schema to help
           "properties": {
             "broker": {
               "type": "string",
-              "format": "uri"
+              "pattern": "^wss?://.*"
             },
             "options": {
               "type": "object",
@@ -100,7 +106,7 @@ A configuration can be loaded in JSON format. Below is an example schema to help
           "required": ["broker"]
         }
       },
-      "required": ["help", "proxy", "urls", "mqtt"]
+      "required": ["prompt", "intro", "help", "proxy", "urls", "mqtt"]
     },
     "scripts": {
       "type": "object",
@@ -114,8 +120,7 @@ A configuration can be loaded in JSON format. Below is an example schema to help
                 "type": "string"
               },
               "mode": {
-                "type": "string",
-                "enum": ["javascript"]
+                "type": "string"
               }
             },
             "required": ["text", "mode"]
@@ -130,8 +135,7 @@ A configuration can be loaded in JSON format. Below is an example schema to help
                 "type": "string"
               },
               "mode": {
-                "type": "string",
-                "enum": ["python"]
+                "type": "string"
               }
             },
             "required": ["text", "mode"]

@@ -14,7 +14,8 @@
         "str": {
           "ls": "print(keys(scripts.js))",
           "lsr": "run('listScripts')",
-          "history": "//history"
+          "history": "//history",
+          "cls": "clear"
         },
         "re": {}
       }

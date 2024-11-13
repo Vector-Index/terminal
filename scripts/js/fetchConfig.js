@@ -8,13 +8,14 @@ async function fetchConfig() {
         config.value = JSON.parse(responseText).config
         data = config.value.data
         scripts = config.value.scripts
-
+        aliases = data.aliases
+        
         // Update prompt and intro
-        if (config.value.prompt) {
-            promptRef.value = config.value.prompt
+        if (data.prompt) {
+            promptRef.value = data.prompt
         }
-        if (config.value.intro) {
-            window.utils.writeLines(config.value.intro)
+        if (data.intro) {
+            window.utils.writeLines(data.intro)
         }
         
         return `Fetched config from ${url}`

@@ -1,5 +1,7 @@
 {
   "config": {
+    "prompt": "",
+    "intro": "Welcome to the JavaScript CLI\r\n\r\nType 'help' to see a list of available commands.\r\n\r\n____   ____             __                \r\n\\   \\ /   /____   _____/  |_  ___________ \r\n \\   Y   // __ \\_/ ___\\   __\\/  _ \\_  __ \\\r\n  \\     /\\  ___/\\  \\___|  | (  <_> )  | \\/\r\n   \\___/  \\___  >\\___  >__|  \\____/|__|   \r\n              \\/     \\/                   \r\n.___            .___             \r\n|   | ____    __| _/____ ___  ___\r\n|   |/    \\  / __ |/ __ \\\\  \\/  /\r\n|   |   |  \\/ /_/ \\  ___/ >    < \r\n|___|___|  /\\____ |\\___  >__/\\_ \\\r\n         \\/      \\/    \\/      \\/\r\n\r\nFor more details, visit the User Manual: https://js.vectorindex.cloud/help?url=https://https://raw.githubusercontent.com/Vector-Index/terminal/refs/heads/main/manuals/terminal.en.md\r\n",
     "data": {
       "help": "- help: Show available commands.\r\n- clear: Clear the screen.\r\n- exit: Close the session.\r\n- //editConfig(): Open the web editor to edit the current configuration. Check scripts at https://github.com/Vector-Index/terminal/tree/main/scripts/js",
       "proxy": "https://api.codetabs.com/v1/proxy/?quest=${url}",
@@ -35,8 +37,6 @@
       "py": {}
     }
   },
-  "prompt": "",
-  "intro": "Welcome to the JavaScript CLI\r\n\r\nType 'help' to see a list of available commands.\r\n\r\n____   ____             __                \r\n\\   \\ /   /____   _____/  |_  ___________ \r\n \\   Y   // __ \\_/ ___\\   __\\/  _ \\_  __ \\\r\n  \\     /\\  ___/\\  \\___|  | (  <_> )  | \\/\r\n   \\___/  \\___  >\\___  >__|  \\____/|__|   \r\n              \\/     \\/                   \r\n.___            .___             \r\n|   | ____    __| _/____ ___  ___\r\n|   |/    \\  / __ |/ __ \\\\  \\/  /\r\n|   |   |  \\/ /_/ \\  ___/ >    < \r\n|___|___|  /\\____ |\\___  >__/\\_ \\\r\n         \\/      \\/    \\/      \\/\r\n\r\nFor more details, visit the User Manual: https://js.vectorindex.cloud/help?url=https://https://raw.githubusercontent.com/Vector-Index/terminal/refs/heads/main/manuals/terminal.en.md\r\n",
   "settings": true,
   "load": true
 }

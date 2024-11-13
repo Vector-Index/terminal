@@ -18,7 +18,7 @@
           "mode": "javascript"
         },
         "reset": {
-          "text": "// Fetch remote config\r\nasync function fetchConfig() {\r\n    const url = `https://raw.githubusercontent.com/Vector-Index/terminal/refs/heads/main/configs/starter.json`\r\n    const responseText = await window.utils.api.get(url)\r\n    console.log(responseText)\r\n    // Replace/reload the current config\r\n    try {\r\n        config.value = JSON.parse(responseText).config\r\n        data = config.value.data\r\n        scripts = config.value.scripts\r\n        return `Fetched config from ${url}`\r\n    } catch (error) {\r\n        return `Error: ${error}`\r\n    }\r\n}\r\nfetchConfig()",
+          "text": "// Fetch remote config\r\nasync function fetchConfig() {\r\n    const url = `https://raw.githubusercontent.com/Vector-Index/terminal/refs/heads/main/configs/starter.json`\r\n    const responseText = await window.utils.api.get(url)\r\n    console.log(responseText)\r\n    // Replace/reload the current config\r\n    try {\r\n        config.value = JSON.parse(responseText).config\r\n        data = config.value.data\r\n        scripts = config.value.scripts\r\n        aliases = data.aliases\r\n        \r\n        // Update prompt and intro\r\n        if (data.prompt) {\r\n            promptRef.value = data.prompt\r\n        }\r\n        // if (data.intro) {\r\n        //     window.utils.writeLines(data.intro)\r\n        // }\r\n        \r\n        return `Fetched config from ${url}`\r\n    } catch (error) {\r\n        return `Error: ${error}`\r\n    }\r\n}\r\nfetchConfig()",
           "mode": "javascript"
         },
         "fetchScript": {
